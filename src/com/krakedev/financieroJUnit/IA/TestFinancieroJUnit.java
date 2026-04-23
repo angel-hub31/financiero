@@ -1,6 +1,7 @@
 package com.krakedev.financieroJUnit.IA;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -19,6 +20,17 @@ public class TestFinancieroJUnit {
 
         assertEquals("1000", cuenta1.getId());
         assertEquals("1001", cuenta2.getId());
+    }
+	@Test
+    void testDepositarMontoValido() {
+        Banco banco = new Banco();
+        Cliente cliente = new Cliente("1712345678", "Juan", "Perez");
+        Cuenta cuenta = banco.crearCuenta(cliente);
+        
+        boolean resultado = banco.depositar(100.0, cuenta);
+
+        assertTrue(resultado);
+        assertEquals(100.0, cuenta.getSaldoActual());
     }
 
 }
