@@ -4,6 +4,7 @@ public class Cuenta {
 	private String id;
 	private double saldoActual;
 	private String tipo;
+	private Cliente propietario;
 	
 	
 	
