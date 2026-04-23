@@ -35,8 +35,13 @@ public class Banco {
 			return true;
 			
 		}
+		return false;	
+	}
+	public boolean transferir(Cuenta origen,Cuenta destino,double monto) {
+		if(retirar(monto,origen)) {
+			return depositar(monto,destino);
+		}
 		return false;
-		
 	}
 	public int getUltimoCodigo() {
 		return ultimoCodigo;
