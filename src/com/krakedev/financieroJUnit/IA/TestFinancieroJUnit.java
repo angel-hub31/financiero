@@ -44,4 +44,16 @@ public class TestFinancieroJUnit {
         assertFalse(resultado);
         assertEquals(0.0, cuenta.getSaldoActual());
     }
+	@Test
+    void testRetirarExitoso() {
+        Banco banco = new Banco();
+        Cliente cliente = new Cliente("1712345678", "Juan", "Perez");
+        Cuenta cuenta = banco.crearCuenta(cliente);
+        
+        banco.depositar(500.0, cuenta);
+        boolean resultado = banco.retirar(200.0, cuenta);
+
+        assertTrue(resultado);
+        assertEquals(300.0, cuenta.getSaldoActual());
+    }
 }
