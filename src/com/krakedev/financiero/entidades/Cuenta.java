@@ -11,6 +11,8 @@ public class Cuenta {
 		this.id = id;
 		this.saldoActual = 0;
 		this.tipo = "A";
+		//solucion a nullPointerExceptio
+		this.propietario= new Cliente();
 	}
 
 	public String getId() {
@@ -47,7 +49,10 @@ public class Cuenta {
 
 	public void imprimir() {
 		System.out.println("Cuenta: " + id + " | SaldoActual: " + saldoActual + " | Tipo: " + tipo);
-		System.out.println("Cedula cliente: "+propietario.getCedula());
+		if(propietario !=null) {
+			System.out.println("Cedula cliente: "+propietario.getCedula());
+
+		}
 	}
 
 }

@@ -4,6 +4,9 @@ public class Cliente {
 	private String cedula;
 	private String nombre;
 	private String apellido;
+	
+	public Cliente() {
+    }
 
 	public Cliente(String cedula, String nombre, String apellido) {
 
