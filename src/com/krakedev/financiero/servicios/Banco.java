@@ -19,6 +19,25 @@ public class Banco {
 		return nuevaCuenta;
 		
 	}
+	public boolean depositar(double monto,Cuenta cuenta) {
+		if(monto>0) {
+			double nuevoSaldo=cuenta.getSaldoActual()+monto;
+			cuenta.setSaldoActual(nuevoSaldo);
+			return true;
+			
+		}
+		return false;
+	}
+	
+	public  boolean retirar(double monto,Cuenta cuenta) {
+		if(monto>0 && monto <=cuenta.getSaldoActual() ) {
+			cuenta.setSaldoActual(cuenta.getSaldoActual()-monto);
+			return true;
+			
+		}
+		return false;
+		
+	}
 	public int getUltimoCodigo() {
 		return ultimoCodigo;
 	}
