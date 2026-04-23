@@ -68,4 +68,20 @@ public class TestFinancieroJUnit {
         assertFalse(resultado);
         assertEquals(100.0, cuenta.getSaldoActual());
     }
+	@Test
+    void testTransferirExitoso() {
+        Banco banco = new Banco();
+        Cliente c1 = new Cliente("171", "Juan", "Perez");
+        Cliente c2 = new Cliente("172", "Ana", "Gomez");
+        
+        Cuenta origen = banco.crearCuenta(c1);
+        Cuenta destino = banco.crearCuenta(c2);
+        
+        banco.depositar(1000.0, origen);
+        boolean resultado = banco.transferir(origen, destino, 400.0);
+
+        assertTrue(resultado);
+        assertEquals(600.0, origen.getSaldoActual());
+        assertEquals(400.0, destino.getSaldoActual());
+    }
 }
